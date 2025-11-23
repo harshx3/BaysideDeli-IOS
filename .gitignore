@@ -1,0 +1,93 @@
+Last login: Tue Nov 18 22:58:55 on console
+harshmakwana@Mac ~ % ls
+Applications	Downloads	Movies		Postman
+Desktop		IdeaSnapshots	Music		Public
+Documents	Library		Pictures
+harshmakwana@Mac ~ % cd Documents 
+harshmakwana@Mac Documents % cd IOS
+harshmakwana@Mac IOS % ls
+AutoLayout-iOS13		github-git-cheat-sheet.pdf
+BaysideDeli			LOTR18Resources
+BBQuotes			LOTRConverter
+ChatPrototype			Magic-8-Ball-iOS13
+DeliProject			Moments
+Dicee-iOS13			Swift
+DragonG				SwiftCert.pdf
+Figma
+harshmakwana@Mac IOS % cd BaysideDeli
+harshmakwana@Mac BaysideDeli % ls
+Assets.xcassets		Models			Utils
+BaysideDeli.xcodeproj	Resources		ViewModels
+BaysideDeliApp.swift	Services		Views
+Componetns		Supporting
+harshmakwana@Mac BaysideDeli % touch .gitignore
+harshmakwana@Mac BaysideDeli % ls
+Assets.xcassets		Models			Utils
+BaysideDeli.xcodeproj	Resources		ViewModels
+BaysideDeliApp.swift	Services		Views
+Componetns		Supporting
+harshmakwana@Mac BaysideDeli % ls -a
+.			BaysideDeli.xcodeproj	Services
+..			BaysideDeliApp.swift	Supporting
+.DS_Store		Componetns		Utils
+.gitignore		Models			ViewModels
+Assets.xcassets		Resources		Views
+harshmakwana@Mac BaysideDeli % cd .gitignore
+cd: not a directory: .gitignore
+harshmakwana@Mac BaysideDeli % vim .gitignore
+harshmakwana@Mac BaysideDeli % ls
+Assets.xcassets		Models			Utils
+BaysideDeli.xcodeproj	Resources		ViewModels
+BaysideDeliApp.swift	Services		Views
+Componetns		Supporting
+harshmakwana@Mac BaysideDeli % touch Config.xcconfig
+harshmakwana@Mac BaysideDeli % vim Config.xcconfig
+harshmakwana@Mac BaysideDeli % ls
+Assets.xcassets		Config.xcconfig		Supporting
+BaysideDeli.xcodeproj	Models			Utils
+BaysideDeliApp.swift	Resources		ViewModels
+Componetns		Services		Views
+harshmakwana@Mac BaysideDeli % Release.xcconfig
+zsh: command not found: Release.xcconfig
+harshmakwana@Mac BaysideDeli % touch Release.xcconfig
+harshmakwana@Mac BaysideDeli % vim Release.xcconfig
+harshmakwana@Mac BaysideDeli % vim .gitignor
+harshmakwana@Mac BaysideDeli % ls
+Assets.xcassets		Config.xcconfig		Supporting
+BaysideDeli.xcodeproj	Models			Utils
+BaysideDeliApp.swift	Resources		ViewModels
+Componetns		Services		Views
+harshmakwana@Mac BaysideDeli % ls -a
+.			BaysideDeliApp.swift	Supporting
+..			Componetns		Utils
+.DS_Store		Config.xcconfig		ViewModels
+.gitignore		Models			Views
+Assets.xcassets		Resources
+BaysideDeli.xcodeproj	Services
+harshmakwana@Mac BaysideDeli % vim .gitignore
+harshmakwana@Mac BaysideDeli % vim .gitignore
+
+# Xcode
+DerivedData/
+build/
+*.xcworkspace
+*.xcuserstate
+*.xcuserdatad
+
+# Swift Package Manager
+/.build/
+Packages/
+
+# Secrets
+Config.xcconfig
+
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+".gitignore" 15L, 150B
+
