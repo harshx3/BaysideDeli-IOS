@@ -11,11 +11,19 @@
 		5024D64E2ECFA9A400E61FD8 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D64D2ECFA9A400E61FD8 /* MenuView.swift */; };
 		5024D6502ECFA9A600E61FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5024D64F2ECFA9A600E61FD8 /* Assets.xcassets */; };
 		5024D66A2ED1190000E61FD8 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D6672ECFC36700E61FD8 /* MenuViewModel.swift */; };
-		5024D66B2ED11A8600E61FD8 /* MenuServiceRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D6662ECFBEF900E61FD8 /* MenuServiceRaw.swift */; };
 		5024D66C2ED11AA500E61FD8 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D6652ECFBD8400E61FD8 /* MenuItem.swift */; };
 		5024D66F2ED1560B00E61FD8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D66E2ED150E600E61FD8 /* Extension.swift */; };
 		5024D6702ED1561100E61FD8 /* FetchImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D66D2ED14C6200E61FD8 /* FetchImage.swift */; };
 		5024D67A2ED3832900E61FD8 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5024D6792ED3832900E61FD8 /* Config.xcconfig */; };
+		5024D67F2ED3B6B200E61FD8 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D67E2ED3B6AC00E61FD8 /* SignupView.swift */; };
+		5024D68A2ED4150400E61FD8 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5024D6892ED414FD00E61FD8 /* SupabaseManager.swift */; };
+		506F869B2ED4FC5700A402C3 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 506F869A2ED4FC5700A402C3 /* Auth */; };
+		506F869D2ED4FC5B00A402C3 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 506F869C2ED4FC5B00A402C3 /* PostgREST */; };
+		506F869F2ED4FC6300A402C3 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 506F869E2ED4FC6300A402C3 /* Storage */; };
+		506F86A12ED4FC6900A402C3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86A02ED4FC6900A402C3 /* Supabase */; };
+		506F86A32ED50CEC00A402C3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86A22ED50CCD00A402C3 /* AuthService.swift */; };
+		506F86A52ED50D1300A402C3 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86A42ED50D0800A402C3 /* MenuService.swift */; };
+		506F86A72ED50D1E00A402C3 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86A62ED50D1800A402C3 /* StorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,12 +32,16 @@
 		5024D64D2ECFA9A400E61FD8 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		5024D64F2ECFA9A600E61FD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5024D6652ECFBD8400E61FD8 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		5024D6662ECFBEF900E61FD8 /* MenuServiceRaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServiceRaw.swift; sourceTree = "<group>"; };
 		5024D6672ECFC36700E61FD8 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		5024D66D2ED14C6200E61FD8 /* FetchImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImage.swift; sourceTree = "<group>"; };
 		5024D66E2ED150E600E61FD8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5024D6792ED3832900E61FD8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		5024D67B2ED39F5100E61FD8 /* BaysideDeli-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BaysideDeli-Info.plist"; sourceTree = "<group>"; };
+		5024D67E2ED3B6AC00E61FD8 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		5024D6892ED414FD00E61FD8 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		506F86A22ED50CCD00A402C3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		506F86A42ED50D0800A402C3 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		506F86A62ED50D1800A402C3 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506F86A12ED4FC6900A402C3 /* Supabase in Frameworks */,
+				506F869F2ED4FC6300A402C3 /* Storage in Frameworks */,
+				506F869D2ED4FC5B00A402C3 /* PostgREST in Frameworks */,
+				506F869B2ED4FC5700A402C3 /* Auth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +74,7 @@
 				5024D6582ECFB39300E61FD8 /* Models */,
 				5024D64F2ECFA9A600E61FD8 /* Assets.xcassets */,
 				5024D64B2ECFA9A400E61FD8 /* BaysideDeliApp.swift */,
+				5024D68B2ED416C700E61FD8 /* Frameworks */,
 				5024D6492ECFA9A400E61FD8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,7 +98,10 @@
 		5024D6592ECFB3B300E61FD8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5024D6662ECFBEF900E61FD8 /* MenuServiceRaw.swift */,
+				506F86A62ED50D1800A402C3 /* StorageService.swift */,
+				506F86A42ED50D0800A402C3 /* MenuService.swift */,
+				506F86A22ED50CCD00A402C3 /* AuthService.swift */,
+				5024D6892ED414FD00E61FD8 /* SupabaseManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -139,6 +159,7 @@
 		5024D6602ECFB51500E61FD8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				5024D67E2ED3B6AC00E61FD8 /* SignupView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -172,6 +193,13 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		5024D68B2ED416C700E61FD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +217,10 @@
 			);
 			name = BaysideDeli;
 			packageProductDependencies = (
+				506F869A2ED4FC5700A402C3 /* Auth */,
+				506F869C2ED4FC5B00A402C3 /* PostgREST */,
+				506F869E2ED4FC6300A402C3 /* Storage */,
+				506F86A02ED4FC6900A402C3 /* Supabase */,
 			);
 			productName = BaysideDeli;
 			productReference = 5024D6482ECFA9A400E61FD8 /* BaysideDeli.app */;
@@ -218,6 +250,9 @@
 			);
 			mainGroup = 5024D63F2ECFA9A400E61FD8;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				50F9E68B2ED4F57500E0CE3F /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5024D6492ECFA9A400E61FD8 /* Products */;
 			projectDirPath = "";
@@ -246,11 +281,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5024D6702ED1561100E61FD8 /* FetchImage.swift in Sources */,
+				506F86A72ED50D1E00A402C3 /* StorageService.swift in Sources */,
 				5024D66A2ED1190000E61FD8 /* MenuViewModel.swift in Sources */,
 				5024D64E2ECFA9A400E61FD8 /* MenuView.swift in Sources */,
 				5024D64C2ECFA9A400E61FD8 /* BaysideDeliApp.swift in Sources */,
+				506F86A52ED50D1300A402C3 /* MenuService.swift in Sources */,
+				5024D67F2ED3B6B200E61FD8 /* SignupView.swift in Sources */,
+				5024D68A2ED4150400E61FD8 /* SupabaseManager.swift in Sources */,
 				5024D66F2ED1560B00E61FD8 /* Extension.swift in Sources */,
-				5024D66B2ED11A8600E61FD8 /* MenuServiceRaw.swift in Sources */,
+				506F86A32ED50CEC00A402C3 /* AuthService.swift in Sources */,
 				5024D66C2ED11AA500E61FD8 /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +510,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		50F9E68B2ED4F57500E0CE3F /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		506F869A2ED4FC5700A402C3 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50F9E68B2ED4F57500E0CE3F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		506F869C2ED4FC5B00A402C3 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50F9E68B2ED4F57500E0CE3F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		506F869E2ED4FC6300A402C3 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50F9E68B2ED4F57500E0CE3F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		506F86A02ED4FC6900A402C3 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50F9E68B2ED4F57500E0CE3F /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5024D6402ECFA9A400E61FD8 /* Project object */;
 }

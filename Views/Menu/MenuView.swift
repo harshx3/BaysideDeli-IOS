@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct MenuView: View {
     @StateObject private var vm = MenuViewModel()
 
