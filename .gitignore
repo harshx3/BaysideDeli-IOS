@@ -1,0 +1,11 @@
+# Xcode
+.DS_Store
+*/build/
+*.derivedData
+*.projectId
+*.xcworkspace
+!default.xcworkspace
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.
