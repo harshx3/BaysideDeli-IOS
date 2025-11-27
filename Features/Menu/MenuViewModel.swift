@@ -20,7 +20,7 @@ class MenuViewModel: ObservableObject {
     
     //INJECTION: we can swap the service
     // if no service is provided, use the Mock by default (for now)
-    init(service: MenuServiceProtocol = MockMenuService()) {
+    init(service: MenuServiceProtocol = SupabaseMenuService()) {
         self.service = service
     }
     

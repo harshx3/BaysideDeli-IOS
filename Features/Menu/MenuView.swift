@@ -37,14 +37,14 @@ struct MenuView: View {
                             VStack(alignment: .leading) {
                                 Text(item.name)
                                     .font(.headline)
-                                Text(item.description!)
+                                Text(item.description ?? "")
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                     .lineLimit(2)
                             }
                             Spacer()
                             
-                            Text(item.base_price, format: .currency(code: "USD"))
+                            Text(item.price, format: .currency(code: "USD"))
                                 .font(.subheadline)
                                 .bold()
                         }
