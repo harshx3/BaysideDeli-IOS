@@ -19,6 +19,7 @@
 		506F86F62ED8E6B800A402C3 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86F52ED8E6B800A402C3 /* PostgREST */; };
 		506F86F82ED8E6B800A402C3 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86F72ED8E6B800A402C3 /* Storage */; };
 		506F86FA2ED8E6BF00A402C3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86F92ED8E6BF00A402C3 /* Supabase */; };
+		506F86FD2ED8FBB700A402C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86FC2ED8FBB700A402C3 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 				506F86F82ED8E6B800A402C3 /* Storage in Frameworks */,
 				506F86F62ED8E6B800A402C3 /* PostgREST in Frameworks */,
 				506F86F42ED8E6B800A402C3 /* Auth in Frameworks */,
+				506F86FD2ED8FBB700A402C3 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,7 @@
 				506F86F52ED8E6B800A402C3 /* PostgREST */,
 				506F86F72ED8E6B800A402C3 /* Storage */,
 				506F86F92ED8E6BF00A402C3 /* Supabase */,
+				506F86FC2ED8FBB700A402C3 /* Kingfisher */,
 			);
 			productName = BaysideDeli;
 			productReference = 506F86C92ED6399600A402C3 /* BaysideDeli.app */;
@@ -187,6 +190,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				506F86F22ED8E6B800A402C3 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				506F86FB2ED8FBB700A402C3 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 506F86CA2ED6399600A402C3 /* Products */;
@@ -444,6 +448,14 @@
 				minimumVersion = 2.5.1;
 			};
 		};
+		506F86FB2ED8FBB700A402C3 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -466,6 +478,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 506F86F22ED8E6B800A402C3 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
+		};
+		506F86FC2ED8FBB700A402C3 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 506F86FB2ED8FBB700A402C3 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

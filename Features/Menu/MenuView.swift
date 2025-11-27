@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MenuView: View {
     
@@ -29,10 +30,28 @@ struct MenuView: View {
                     List(viewModel.items) {
                         item in
                         HStack {
-                         Rectangle()
-                                .fill(Color.gray.opacity(0.3))
-                                .frame(width: 60, height: 60)
-                                .cornerRadius(8)
+                            if let urlString = item.imageURL, let url = URL(string: urlString) {
+                                KFImage(url)
+                                    .placeholder {
+                                        Rectangle()
+                                            .fill(Color.gray.opacity(0.3))
+                                    }
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 60, height: 60)
+                                    .cornerRadius(8)
+                                    .clipped()
+                            }
+                            else {
+                                Rectangle()
+                                    .fill(Color.gray.opacity(0.3))
+                                    .frame(width: 60, height: 60)
+                                    .cornerRadius(8)
+                                    .overlay {
+                                        Image(systemName: "photo")
+                                            .foregroundStyle(.secondary)
+                                    }
+                            }
                             
                             VStack(alignment: .leading) {
                                 Text(item.name)
