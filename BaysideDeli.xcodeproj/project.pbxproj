@@ -10,6 +10,9 @@
 		506F86CD2ED6399600A402C3 /* BaysideDeliApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86CC2ED6399600A402C3 /* BaysideDeliApp.swift */; };
 		506F86CF2ED6399600A402C3 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86CE2ED6399600A402C3 /* MenuView.swift */; };
 		506F86D12ED6399800A402C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 506F86D02ED6399800A402C3 /* Assets.xcassets */; };
+		506F86E12ED7EB1A00A402C3 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86E02ED7EB1300A402C3 /* MenuViewModel.swift */; };
+		506F86E22ED7ECEA00A402C3 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86DE2ED6457100A402C3 /* MenuService.swift */; };
+		506F86E32ED7ECF200A402C3 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86DF2ED6B1C000A402C3 /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,8 @@
 		506F86CE2ED6399600A402C3 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		506F86D02ED6399800A402C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		506F86DE2ED6457100A402C3 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		506F86DF2ED6B1C000A402C3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		506F86E02ED7EB1300A402C3 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 		506F86DB2ED639EE00A402C3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				506F86DF2ED6B1C000A402C3 /* MenuItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,6 +107,7 @@
 		506F86DD2ED63B3B00A402C3 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				506F86E02ED7EB1300A402C3 /* MenuViewModel.swift */,
 				506F86CE2ED6399600A402C3 /* MenuView.swift */,
 			);
 			path = Menu;
@@ -178,8 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506F86E12ED7EB1A00A402C3 /* MenuViewModel.swift in Sources */,
 				506F86CF2ED6399600A402C3 /* MenuView.swift in Sources */,
+				506F86E22ED7ECEA00A402C3 /* MenuService.swift in Sources */,
 				506F86CD2ED6399600A402C3 /* BaysideDeliApp.swift in Sources */,
+				506F86E32ED7ECF200A402C3 /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
