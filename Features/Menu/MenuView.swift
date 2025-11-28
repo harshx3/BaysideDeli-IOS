@@ -29,6 +29,7 @@ struct MenuView: View {
                     //Success State
                     List(viewModel.items) {
                         item in
+                        NavigationLink(destination: MenuItemDetailView(item: item)) {
                         HStack {
                             if let urlString = item.imageURL, let url = URL(string: urlString) {
                                 KFImage(url)
@@ -68,13 +69,15 @@ struct MenuView: View {
                                 .bold()
                         }
                     }
+                        .listStyle(.plain)
+                    }
                     .listStyle(.plain)
                     
                 }
             }
             .navigationTitle("Menu")
             .task {
-                // This triggers the data loan when the View appears
+                // This triggers the data load when the View appears
                 await viewModel.loadMenu()
             }
         }

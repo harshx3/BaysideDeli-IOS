@@ -20,6 +20,7 @@
 		506F86F82ED8E6B800A402C3 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86F72ED8E6B800A402C3 /* Storage */; };
 		506F86FA2ED8E6BF00A402C3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86F92ED8E6BF00A402C3 /* Supabase */; };
 		506F86FD2ED8FBB700A402C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86FC2ED8FBB700A402C3 /* Kingfisher */; };
+		506F86FF2ED94B9D00A402C3 /* MenuItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86FE2ED94B9D00A402C3 /* MenuItemDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		506F86E02ED7EB1300A402C3 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		506F86EB2ED8D3E100A402C3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		506F86ED2ED8E54A00A402C3 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		506F86FE2ED94B9D00A402C3 /* MenuItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				506F86E02ED7EB1300A402C3 /* MenuViewModel.swift */,
 				506F86CE2ED6399600A402C3 /* MenuView.swift */,
+				506F86FE2ED94B9D00A402C3 /* MenuItemDetailView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				506F86E12ED7EB1A00A402C3 /* MenuViewModel.swift in Sources */,
 				506F86EC2ED8D3EB00A402C3 /* Secrets.swift in Sources */,
+				506F86FF2ED94B9D00A402C3 /* MenuItemDetailView.swift in Sources */,
 				506F86CF2ED6399600A402C3 /* MenuView.swift in Sources */,
 				506F86E22ED7ECEA00A402C3 /* MenuService.swift in Sources */,
 				506F86CD2ED6399600A402C3 /* BaysideDeliApp.swift in Sources */,
