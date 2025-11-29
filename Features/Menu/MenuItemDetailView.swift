@@ -7,10 +7,18 @@
 
 import SwiftUI
 import Kingfisher
+import SwiftData
 
 struct MenuItemDetailView: View {
     
     let item: MenuItem
+    
+    // Database Connection
+    // This grabs the "Scratchpad" from the environment automatically
+    @Environment(\.modelContext) private var context
+    
+    // UI State for the Alert
+    @State private var showConfirmation = false
     
     var body: some View {
         ScrollView {
@@ -59,9 +67,7 @@ struct MenuItemDetailView: View {
                         .lineSpacing(4)
                     
                     Spacer()
-                    Button(action: {
-                        print("Add to cart: \(item.name)")
-                    }) {
+                    Button(action: addToCart) {
                         Text("Add to Cart")
                             .font(.headline)
                             .fontWeight(.bold)
@@ -78,6 +84,29 @@ struct MenuItemDetailView: View {
         }
         .navigationTitle(item.name)
         .navigationBarTitleDisplayMode(.inline)
+        .alert("Added to Cart", isPresented: $showConfirmation) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("\(item.name) is now in your cart.")
+        }
+        
+    }
+        // Add to Cart logic
+        private func addToCart() {
+            // Create the new row for the database
+            let cartItem = CartItem(menuItem: item, quantity: 1)
+            
+            // "Insert" writes it to the temporary scratchpad
+            context.insert(cartItem)
+            
+            //Note: SwiftData autosaves changes to disk automatically by default
+            
+            // Trigger the Feedback
+            showConfirmation = true
+            
+            // Haptic Feedback
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
     }
 }
 
@@ -93,6 +122,7 @@ struct MenuItemDetailView: View {
             isActive: true,
             sortOrder: 1
         ))
+        .modelContainer(for: CartItem.self, inMemory: true)
     }
 }
 
