@@ -76,6 +76,14 @@ struct MenuView: View {
                 }
             }
             .navigationTitle("Menu")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: CartView()) {
+                        Image(systemName: "cart.fill")
+                            .font(.headline)
+                    }
+                }
+            }
             .task {
                 // This triggers the data load when the View appears
                 await viewModel.loadMenu()

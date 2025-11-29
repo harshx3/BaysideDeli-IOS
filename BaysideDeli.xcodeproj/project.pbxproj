@@ -21,6 +21,8 @@
 		506F86FA2ED8E6BF00A402C3 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86F92ED8E6BF00A402C3 /* Supabase */; };
 		506F86FD2ED8FBB700A402C3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 506F86FC2ED8FBB700A402C3 /* Kingfisher */; };
 		506F86FF2ED94B9D00A402C3 /* MenuItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F86FE2ED94B9D00A402C3 /* MenuItemDetailView.swift */; };
+		506F87012ED956EB00A402C3 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F87002ED956E500A402C3 /* CartItem.swift */; };
+		506F87042EDA608B00A402C3 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506F87032EDA607E00A402C3 /* CartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		506F86EB2ED8D3E100A402C3 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		506F86ED2ED8E54A00A402C3 /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
 		506F86FE2ED94B9D00A402C3 /* MenuItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemDetailView.swift; sourceTree = "<group>"; };
+		506F87002ED956E500A402C3 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		506F87032EDA607E00A402C3 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		506F86D92ED639D400A402C3 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				506F87022EDA604C00A402C3 /* Cart */,
 				506F86DD2ED63B3B00A402C3 /* Menu */,
 			);
 			path = Features;
@@ -111,6 +116,7 @@
 		506F86DB2ED639EE00A402C3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				506F87002ED956E500A402C3 /* CartItem.swift */,
 				506F86DF2ED6B1C000A402C3 /* MenuItem.swift */,
 			);
 			path = Models;
@@ -138,6 +144,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		506F87022EDA604C00A402C3 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				506F87032EDA607E00A402C3 /* CartView.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,10 +235,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506F87042EDA608B00A402C3 /* CartView.swift in Sources */,
 				506F86E12ED7EB1A00A402C3 /* MenuViewModel.swift in Sources */,
 				506F86EC2ED8D3EB00A402C3 /* Secrets.swift in Sources */,
 				506F86FF2ED94B9D00A402C3 /* MenuItemDetailView.swift in Sources */,
 				506F86CF2ED6399600A402C3 /* MenuView.swift in Sources */,
+				506F87012ED956EB00A402C3 /* CartItem.swift in Sources */,
 				506F86E22ED7ECEA00A402C3 /* MenuService.swift in Sources */,
 				506F86CD2ED6399600A402C3 /* BaysideDeliApp.swift in Sources */,
 				506F86E32ED7ECF200A402C3 /* MenuItem.swift in Sources */,
