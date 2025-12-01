@@ -92,22 +92,46 @@ struct MenuItemDetailView: View {
         
     }
         // Add to Cart logic
-        private func addToCart() {
-            // Create the new row for the database
-            let cartItem = CartItem(menuItem: item, quantity: 1)
+    private func addToCart() {
+            // 1. Define the ID we are looking for
+            let targetID = item.id
             
-            // "Insert" writes it to the temporary scratchpad
-            context.insert(cartItem)
+            // 2. Create a "Fetch Descriptor" (The Search Query)
+            // We use a #Predicate to filter the database.
+            // Logic: "Find me any CartItem where the menuItemID matches this item's ID."
+            let predicate = #Predicate<CartItem> { cartItem in
+                cartItem.menuItemID == targetID
+            }
+            var descriptor = FetchDescriptor(predicate: predicate)
             
-            //Note: SwiftData autosaves changes to disk automatically by default
+            // 3. Limit the search (Optimization)
+            // We only need 1 match to know it exists.
+            descriptor.fetchLimit = 1
             
-            // Trigger the Feedback
-            showConfirmation = true
-            
-            // Haptic Feedback
-            let generator = UINotificationFeedbackGenerator()
-            generator.notificationOccurred(.success)
-    }
+            do {
+                // 4. Run the search
+                let duplicateItems = try context.fetch(descriptor)
+                
+                if let existingItem = duplicateItems.first {
+                    // CASE A: It exists! Just update the quantity.
+                    existingItem.quantity += 1
+                    print("Updated quantity for \(item.name)")
+                } else {
+                    // CASE B: It's new! Create a new row.
+                    let newItem = CartItem(menuItem: item, quantity: 1)
+                    context.insert(newItem)
+                    print("Inserted new row for \(item.name)")
+                }
+                
+                // 5. Success Feedback
+                showConfirmation = true
+                let generator = UINotificationFeedbackGenerator()
+                generator.notificationOccurred(.success)
+                
+            } catch {
+                print("Failed to fetch cart items: \(error)")
+            }
+        }
 }
 
 #Preview {

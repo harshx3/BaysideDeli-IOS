@@ -19,6 +19,8 @@ struct CartView: View {
     // It watches for changes. If a new item is added, this array updates instantly.
     @Query private var cartItems: [CartItem]
     
+    @State private var isCheckingOut = false
+    
     // 3. Calculated Total
     private var totalPrice: Double {
         cartItems.reduce(0) { $0 + $1.totalPrice }
@@ -83,13 +85,20 @@ struct CartView: View {
                 // Section 3: Checkout Button (Placeholder)
                 Section {
                     Button(action: {
-                        print("Checkout tapped!")
+                        Task {
+                            await performCheckout()
+                        }
                     }) {
-                        Text("Checkout")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity)
-                            .foregroundStyle(.blue)
+                        if isCheckingOut {
+                            ProgressView()
+                        } else {
+                            Text("Checkout")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity)
+                                .foregroundStyle(.blue)
+                        }
                     }
+                    .disabled(isCheckingOut) // Prevent double taps
                 }
             }
         }
@@ -102,9 +111,29 @@ struct CartView: View {
             let itemToDelete = cartItems[index]
             context.delete(itemToDelete)
         }
+    }
         // No need to save manually! SwiftData handles it.
+        
+        private func performCheckout() async {
+            isCheckingOut = true
+            do {
+                let service = OrderService()
+                // We pass 'nil' for notes for now
+                try await service.placeOrder(cartItems: cartItems, notes: nil)
+                
+                // Success! Clear the local cart
+                try? context.delete(model: CartItem.self)
+                print("Cart Cleared")
+                
+            } catch {
+                print("Checkout Failed: \(error)")
+            }
+            isCheckingOut = false
+        
     }
 }
+
+
 
 #Preview {
     // Preview with In-Memory DB
