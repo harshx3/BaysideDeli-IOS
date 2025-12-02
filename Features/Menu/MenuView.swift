@@ -83,6 +83,13 @@ struct MenuView: View {
                             .font(.headline)
                     }
                 }
+                
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink(destination: OrderHistoryView()) {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.headline)
+                    }
+                }
             }
             .task {
                 // This triggers the data load when the View appears
