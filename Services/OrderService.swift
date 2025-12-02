@@ -63,4 +63,19 @@ struct OrderService {
         
         print("✅ Order Items Saved!")
     }
+        
+        // fetch History
+        func fetchOrders() async throws -> [Order] {
+            let client = SupabaseManager.shared.client
+            
+            let orders: [Order] = try await client
+                .from("orders")
+                .select()
+                .order("created_at", ascending: false) // get newest first
+                .execute()
+                .value
+            
+            return orders
+        }
+    
 }
