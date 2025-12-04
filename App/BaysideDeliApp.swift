@@ -10,16 +10,18 @@ import SwiftData
 
 @main
 struct BaysideDeliApp: App {
+    
+    // 1. Create the Global Auth State (Source of Truth)
+    @StateObject private var appViewModel = AppViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            MenuView()
+            // 2. Change Root View to MainTabView
+            MainTabView()
+                .environmentObject(appViewModel) // 3. Inject it everywhere!
+                .modelContainer(for: CartItem.self)
                 .preferredColorScheme(.light)
-
         }
-        //Injecting Database from CartItem.Swift
-        // This creates the file "default.store" on the user's phone
-        .modelContainer(for: CartItem.self)
-            }
+    }
 }
-
 
