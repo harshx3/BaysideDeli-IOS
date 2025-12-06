@@ -11,7 +11,7 @@ import Supabase
 struct OrderService {
     
     // 1. Calculate and Send
-    func placeOrder(cartItems: [CartItem], notes: String?) async throws {
+    func placeOrder(cartItems: [CartItem], notes: String?, userId: UUID?) async throws {
         let client = SupabaseManager.shared.client
         
         // A. MATH: Calculate totals locally
@@ -25,7 +25,8 @@ struct OrderService {
             subtotal: subtotal,
             tax: tax,
             total: total,
-            notes: notes
+            notes: notes,
+            user_id: userId
         )
         
         // "insert" returns the data so we can get the new ID
