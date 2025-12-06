@@ -40,4 +40,9 @@ class AppViewModel: ObservableObject {
             print("Error signing out: \(error)")
         }
     }
+    
+    // Add this inside the AppViewModel class
+    var currentUser: User? {
+        return authService.currentUser
+    }
 }

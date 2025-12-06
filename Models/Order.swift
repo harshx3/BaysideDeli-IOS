@@ -15,6 +15,7 @@ struct Order: Encodable, Decodable {
     let tax: Double
     let total: Double
     let notes: String?
+    let user_id: UUID?
     
     // We match your SQL column names
     enum CodingKeys: String, CodingKey {
@@ -24,6 +25,7 @@ struct Order: Encodable, Decodable {
         case tax
         case total
         case notes
+        case user_id = "customer_id"
         // We ignore store_id, customer_id, etc. for now (they will be null)
     }
 }

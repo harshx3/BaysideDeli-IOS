@@ -8,27 +8,26 @@
 import SwiftUI
 import SwiftData
 import Kingfisher
+import Supabase
 
 struct CartView: View {
     
-    // 1. The Database Connection
+    // 1. Dependencies
     @Environment(\.modelContext) private var context
+    @EnvironmentObject var appViewModel: AppViewModel // To check login status
     
-    // 2. The Live Query
-    // This fetches ALL CartItems from the database automatically.
-    // It watches for changes. If a new item is added, this array updates instantly.
+    // 2. Data
     @Query private var cartItems: [CartItem]
-    
     @State private var isCheckingOut = false
+    @State private var showLoginSheet = false // Controls the login popup
     
-    // 3. Calculated Total
     private var totalPrice: Double {
         cartItems.reduce(0) { $0 + $1.totalPrice }
     }
     
     var body: some View {
         List {
-            // Section 1: The Items
+            // --- SECTION 1: ITEMS ---
             Section {
                 if cartItems.isEmpty {
                     ContentUnavailableView(
@@ -39,7 +38,6 @@ struct CartView: View {
                 } else {
                     ForEach(cartItems) { item in
                         HStack {
-                            // Mini Image
                             if let url = URL(string: item.imageURL) {
                                 KFImage(url)
                                     .resizable()
@@ -63,12 +61,11 @@ struct CartView: View {
                                 .bold()
                         }
                     }
-                    // 4. The Delete Action
                     .onDelete(perform: deleteItems)
                 }
             }
             
-            // Section 2: The Summary
+            // --- SECTION 2: TOTAL & CHECKOUT ---
             if !cartItems.isEmpty {
                 Section {
                     HStack {
@@ -82,13 +79,8 @@ struct CartView: View {
                     }
                 }
                 
-                // Section 3: Checkout Button (Placeholder)
                 Section {
-                    Button(action: {
-                        Task {
-                            await performCheckout()
-                        }
-                    }) {
+                    Button(action: handleCheckoutTap) {
                         if isCheckingOut {
                             ProgressView()
                         } else {
@@ -98,47 +90,91 @@ struct CartView: View {
                                 .foregroundStyle(.blue)
                         }
                     }
-                    .disabled(isCheckingOut) // Prevent double taps
+                    .disabled(isCheckingOut)
                 }
             }
         }
         .navigationTitle("My Cart")
+        // --- LOGIN SHEET LOGIC ---
+        .sheet(isPresented: $showLoginSheet) {
+            NavigationStack {
+                AuthView()
+                    .toolbar {
+                        ToolbarItem(placement: .topBarLeading) {
+                            Button("Cancel") { showLoginSheet = false }
+                        }
+                    }
+            }
+            .presentationDetents([.medium])
+        }
+        // PRO MOVE: Auto-close sheet when user logs in successfully
+        .onChange(of: appViewModel.isAuthenticated) { oldValue, newValue in
+            if newValue == true {
+                showLoginSheet = false
+            }
+        }
     }
     
-    // 5. The Delete Logic
+    // MARK: - Logic Helpers
+    
+    // 1. The Gatekeeper
+    private func handleCheckoutTap() {
+        if appViewModel.isAuthenticated {
+            // User is logged in -> Go!
+            Task { await performCheckout() }
+        } else {
+            // User is Guest -> Stop! Show Login.
+            showLoginSheet = true
+        }
+    }
+    
+    // 2. The Heavy Lifting
+    private func performCheckout() async {
+            isCheckingOut = true
+            do {
+                let service = OrderService()
+                let userId = appViewModel.currentUser?.id
+                
+                // 1. Send to Server
+                try await service.placeOrder(
+                    cartItems: cartItems,
+                    notes: nil,
+                    userId: userId
+                )
+                
+                // 2. THE NUCLEAR FIX (Main Actor)
+                // We jump to the Main Thread to ensure the UI updates instantly.
+                await MainActor.run {
+                    // Delete every single item
+                    for item in cartItems {
+                        context.delete(item)
+                    }
+                    
+                    // FORCE SAVE the deletion to disk
+                    try? context.save()
+                }
+                
+                print("✅ Checkout Success! Cart cleared.")
+                
+            } catch {
+                print("❌ Checkout Failed: \(error)")
+            }
+            isCheckingOut = false
+        }
+    
     private func deleteItems(at offsets: IndexSet) {
         for index in offsets {
             let itemToDelete = cartItems[index]
             context.delete(itemToDelete)
         }
     }
-        // No need to save manually! SwiftData handles it.
-        
-        private func performCheckout() async {
-            isCheckingOut = true
-            do {
-                let service = OrderService()
-                // We pass 'nil' for notes for now
-                try await service.placeOrder(cartItems: cartItems, notes: nil)
-                
-                // Success! Clear the local cart
-                try? context.delete(model: CartItem.self)
-                print("Cart Cleared")
-                
-            } catch {
-                print("Checkout Failed: \(error)")
-            }
-            isCheckingOut = false
-        
-    }
 }
 
 
-
 #Preview {
-    // Preview with In-Memory DB
     NavigationStack {
         CartView()
+            .environmentObject(AppViewModel()) // <--- ADD THIS
             .modelContainer(for: CartItem.self, inMemory: true)
     }
 }
