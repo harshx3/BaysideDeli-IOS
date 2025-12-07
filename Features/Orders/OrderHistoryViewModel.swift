@@ -16,12 +16,12 @@ class OrderHistoryViewModel: ObservableObject {
     
     private let service = OrderService()
     
-    func loadOrders() async {
+    func loadOrders(userId: UUID) async {
         isLoading = true
         errorMessage = nil
         
         do {
-            self.orders = try await service.fetchOrders()
+            self.orders = try await service.fetchOrders(userId: userId)
             
         } catch {
             self.errorMessage = "Failed to load orders: \(error.localizedDescription)"

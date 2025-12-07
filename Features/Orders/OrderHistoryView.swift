@@ -6,85 +6,88 @@
 //
 
 import SwiftUI
+import Supabase
 
 struct OrderHistoryView: View {
     
     @StateObject private var viewModel = OrderHistoryViewModel()
+    @EnvironmentObject var appViewModel: AppViewModel // <--- 1. Access Auth State
     
     var body: some View {
         NavigationStack {
             Group {
-                if viewModel.isLoading {
+                // SCENARIO A: Guest User (Logged Out)
+                if !appViewModel.isAuthenticated {
+                    ContentUnavailableView(
+                        "Log In Required",
+                        systemImage: "person.crop.circle.badge.exclamationmark",
+                        description: Text("Please log in to view your past orders.")
+                    )
+                }
+                // SCENARIO B: Logged In but Loading
+                else if viewModel.isLoading {
                     ProgressView("Loading history...")
-                } else if let error = viewModel.errorMessage {
+                }
+                // SCENARIO C: Logged In but Error
+                else if let error = viewModel.errorMessage {
                     ContentUnavailableView(
                         "Error",
                         systemImage: "exclamationmark.triangle",
                         description: Text(error)
                     )
-                } else if viewModel.orders.isEmpty {
+                }
+                // SCENARIO D: Logged In but Empty History
+                else if viewModel.orders.isEmpty {
                     ContentUnavailableView(
                         "No Orders Yet",
                         systemImage: "doc.text.magnifyingglass",
                         description: Text("Go order a burger!")
                     )
-                } else {
-                    // THE LIST
+                }
+                // SCENARIO E: Show The List!
+                else {
                     List(viewModel.orders, id: \.id) { order in
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("Order #\(order.id ?? 0)")
                                     .font(.headline)
-                                
-                                // Status Badge
                                 Text(order.status.uppercased())
                                     .font(.caption)
                                     .fontWeight(.bold)
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
-                                    .background(statusColor(for: order.status).opacity(0.2))
-                                    .foregroundStyle(statusColor(for: order.status))
+                                    .background(Color.blue.opacity(0.2)) // Simplified color for now
+                                    .foregroundStyle(.blue)
                                     .cornerRadius(4)
                             }
-                            
                             Spacer()
-                            
-                            VStack(alignment: .trailing) {
-                                Text(order.total, format: .currency(code: "USD"))
-                                    .bold()
-                                
-                                // Simple date logic (we will improve this later)
-                                Text("Just now")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
+                            Text(order.total, format: .currency(code: "USD"))
+                                .bold()
                         }
                     }
                     .listStyle(.plain)
                     .refreshable {
-                        await viewModel.loadOrders()
+                        // Refresh with current ID
+                        if let id = appViewModel.currentUser?.id {
+                            await viewModel.loadOrders(userId: id)
+                        }
                     }
                 }
             }
             .navigationTitle("Order History")
             .task {
-                await viewModel.loadOrders()
+                // Only load if we have a valid User ID
+                if let id = appViewModel.currentUser?.id {
+                    await viewModel.loadOrders(userId: id)
+                }
             }
         }
     }
-    
-    // Helper for Status Colors
-    private func statusColor(for status: String) -> Color {
-        switch status.lowercased() {
-        case "new": return .blue
-        case "cooking": return .orange
-        case "delivered": return .green
-        case "cancelled": return .red
-        default: return .gray
-        }
-    }
 }
-
 #Preview {
-    OrderHistoryView()
+    NavigationStack {
+        OrderHistoryView()
+            // 💉 Inject the missing dependency
+            .environmentObject(AppViewModel())
+    }
 }
