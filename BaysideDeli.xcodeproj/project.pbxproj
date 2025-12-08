@@ -66,8 +66,8 @@
 				5024D6792ED3832900E61FD8 /* Config.xcconfig */,
 				5024D65F2ECFB40500E61FD8 /* Supporting */,
 				5024D65E2ECFB3F200E61FD8 /* Resources */,
-				5024D65D2ECFB3E900E61FD8 /* Utils */,
-				5024D65C2ECFB3DE00E61FD8 /* Componetns */,
+				5024D65D2ECFB3E900E61FD8 /* Utilities */,
+				5024D65C2ECFB3DE00E61FD8 /* Components */,
 				5024D65B2ECFB3CC00E61FD8 /* Views */,
 				5024D65A2ECFB3BC00E61FD8 /* ViewModels */,
 				5024D6592ECFB3B300E61FD8 /* Services */,
@@ -126,20 +126,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		5024D65C2ECFB3DE00E61FD8 /* Componetns */ = {
+		5024D65C2ECFB3DE00E61FD8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Componetns;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		5024D65D2ECFB3E900E61FD8 /* Utils */ = {
+		5024D65D2ECFB3E900E61FD8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				5024D66E2ED150E600E61FD8 /* Extension.swift */,
 				5024D66D2ED14C6200E61FD8 /* FetchImage.swift */,
 			);
-			path = Utils;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		5024D65E2ECFB3F200E61FD8 /* Resources */ = {

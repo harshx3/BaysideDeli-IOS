@@ -10,14 +10,17 @@ import Supabase
 
 final class SupabaseManager {
     
+    static let shared = SupabaseManager()
+    
     //Primary Supabase client instance
     let client: SupabaseClient
     
     //Services that will be managed by this central class
     //lazy means the sevices are initialized only when first accessed
+    
 //    private(set) lazy var authService = AuthService(client: client)
     private(set) lazy var menuService = MenuService(client: client)
-//    private(set) lazy var storageService = StorageService(client: client)
+    private(set) lazy var storageService = StorageService(client: client)
     
     init() {
         //get configuration values from Info.plist which we have got from supabase web

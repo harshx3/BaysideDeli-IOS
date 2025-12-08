@@ -13,6 +13,6 @@ struct MenuItem: Identifiable, Decodable {
     let name: String
     let description: String?
     let base_price: Double
-    let image_url: String?
+    var image_url: String?
     let is_active: Bool?
 }
